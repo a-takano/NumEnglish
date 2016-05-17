@@ -22,117 +22,62 @@ public class IntToEngTest {
     }
 
     // 数値nを英訳する変換するメソッド
-    static String translateEng(int n) {
-    	//String s = String.valueOf(n);//数値→文字列
-    	//System.out.println(s);
-    	String[] s = {
-    			"",
-    			"one",
-    			"two",
-    			"three",
-    			"four",
-    			"five",
-    			"six",
-    			"seven",
-    			"eight",
-    			"nine",
-    			"ten",
-    			"eleven",
-    			"twelve",
-    			"thirteen",
-    			"fourteen",
-    			"fifteen",
-    			"sixteen",
-    			"seventeen",
-    			"eighteen",
-    			"nineteen",
-    			"twenty",
-    			"twenty-one",
-    			"twenty-two",
-    			"twenty-three",
-    			"twenty-four",
-    			"twenty-five",
-    			"twenty-six",
-    			"twenty-seven",
-    			"twenty-eight",
-    			"twenty-nine",
-    			"thirty",
-    			"thirty-one",
-    			"thirty-two",
-    			"thirty-three",
-    			"thirty-four",
-    			"thirty-five",
-    			"thirty-six",
-    			"thirty-seven",
-    			"thirty-eight",
-    			"thirty-nine",
-    			"fourty",
-    			"fourty-one",
-    			"fourty-two",
-    			"fourty-three",
-    			"fourty-four",
-    			"fourty-five",
-    			"fourty-six",
-    			"fourty-seven",
-    			"fourty-eight",
-    			"fourty-nine",
-    			"fifty",
-    			"fifty-one",
-    			"fifty-two",
-    			"fifty-three",
-    			"fifty-four",
-    			"fifty-five",
-    			"fifty-six",
-    			"fifty-seven",
-    			"fifty-eight",
-    			"fifty-nine",
-    			"sixty",
-    			"sixty-one",
-    			"sixty-two",
-    			"sixty-three",
-    			"sixty-four",
-    			"sixty-five",
-    			"sixty-six",
-    			"sixty-seven",
-    			"sixty-eight",
-    			"sixty-nine",
-    			"seventy",
-    			"seventy-one",
-    			"seventy-two",
-    			"seventy-three",
-    			"seventy-four",
-    			"seventy-five",
-    			"seventy-six",
-    			"seventy-seven",
-    			"seventy-eight",
-    			"seventy-nine",
-    			"eighty",
-    			"eighty-one",
-    			"eighty-two",
-    			"eighty-three",
-    			"eighty-four",
-    			"eighty-five",
-    			"eighty-six",
-    			"eighty-seven",
-    			"eighty-eight",
-    			"eighty-nine",
-    			"ninety",
-    			"ninety-one",
-    			"ninety-two",
-    			"ninety-three",
-    			"ninety-four",
-    			"ninety-five",
-    			"ninety-six",
-    			"ninety-seven",
-    			"ninety-eight",
-    			"ninety-nine",
-    			"hundred",
-    			};
-    	for(int i = 0; i <= 100; i++){
-    	    if(n == i){
-    		return s[i];
-    	    }
-    	}
-        return ""+s;
-    }
+	static String translateEng(int n) {
+		String[] a = {
+				"zero",//a[0]
+				"one",//a[1]
+				"two",//a[2]
+				"three",//a[3]
+				"four",//a[4]
+				"five",//a[5]
+				"six",//a[6]
+				"seven",//a[7]
+				"eight",//a[8]
+				"nine",//a[9]
+				"ten",//a[10]
+				"eleven",//a[11]
+				"twelve",//a[12]
+				"thrteen",//a[13]
+				"fourteen",//a[14]
+				"fifteen",//a[15]
+				"sixteen",//a[16]
+				"seventeen",//a[17]
+				"eighteen",//a[18]
+				"nineteen"};//a[19]
+		String[] b = {
+				"",//b[0]
+				"twenty-",//b[1]
+				"thierty-",//b[2]
+				"fourty-",//b[3]
+				"fifty-",//b[4]
+				"sixty-",//b[5]
+				"seventy-",//b[6]
+				"eighty-",//b[7]
+				"ninety-"};//b[8]
+		String n2 = null;
+			if(n < 0 || n > 100){
+				return "0から99までの数字を入力してください。";
+			}else if(n == 100){
+				return "hundred";
+			}else if(90 <= n && n <= 99){
+				return n2 = b[8] + a[n%90];
+			}else if(80 <= n && n < 90){
+				return n2 = b[7] + a[n%80];
+			}else if(70 <= n && n < 80){
+				return n2 = b[6] + a[n%70];
+			}else if(60 <= n && n < 70){
+				return n2 = b[5] + a[n%60];
+			}else if(50 <= n && n < 60){
+				return n2 = b[4] + a[n&50];
+			}else if(40 <= n && n < 50){
+				return n2 = b[3] + a[n%40];
+			}else if(30 <= n && n < 40){
+				return n2 = b[2] + a[n%30];
+			}else if(20 <= n && n < 30){
+				return n2 = b[1] + a[n%20];
+			}else if(n < 20){
+				return n2 = a[n];
+			}
+			return "" + n2;
+		}
 }
